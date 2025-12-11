@@ -1,4 +1,4 @@
-// galeri.js - Logika Galeri Pelanggan (SIMPLIFIED & FINAL)
+// VERSI INI MENDUKUNG PENCARIAN BERDASARKAN NAMA ATAU TANGGAL (YYYY-MM-DD)
 
 const galleryList = document.getElementById('gallery-list');
 const searchInput = document.getElementById('search-input');
@@ -22,7 +22,7 @@ async function loadGalleryData() {
         filterGallery(); 
 
     } catch (error) {
-        // Blok penanganan error akan tampil HANYA JIKA GAGAL FETCH/PARSE
+        // Blok penanganan error
         console.error('CRITICAL ERROR:', error);
         galleryList.innerHTML = `<p class="no-results" style="color: red;">
             ❌ ERROR KRITIS: Gagal memuat data. <br>
@@ -37,14 +37,18 @@ function filterGallery() {
 
     // TAMPILKAN PESAN SAMBUTAN JIKA KOSONG
     if (isDataLoaded && searchTerm.length < 2) { 
-        galleryList.innerHTML = '<p class="no-results">Silakan ketik minimal 2 huruf pertama nama Anda di kolom pencarian di atas.</p>';
+        galleryList.innerHTML = '<p class="no-results">Silakan ketik minimal 2 huruf pertama nama Anda atau sebagian tanggal (Contoh: 2025-12) di kolom pencarian di atas.</p>';
         return; 
     }
     
-    // FILTER BERDASARKAN NAMA
+    // 🔍 FILTER BERDASARKAN NAMA ATAU TANGGAL ACARA
     if (searchTerm) {
         filteredData = filteredData.filter(item => 
-            item.nama_pelanggan.toLowerCase().includes(searchTerm)
+            // Cek apakah nama pelanggan mengandung search term (case-insensitive)
+            item.nama_pelanggan.toLowerCase().includes(searchTerm) ||
+            
+            // ATAU Cek apakah tanggal acara (YYYY-MM-DD) mengandung search term
+            item.tanggal_acara.includes(searchTerm)
         );
     }
 
