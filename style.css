@@ -1,4 +1,4 @@
-/* style.css - Tema Floating/Bubble Cards (Teal & Pink) & Fixed Mobile Nav */
+/* style.css - Tema Galaxy UI Style (Teal & Pink) & Fixed Mobile Nav */
 
 /* --- TEMA GLOBAL & PALET WARNA ANDA --- */
 :root {
@@ -11,12 +11,14 @@
     --color-teal-dark: #42A8A8; 
     
     --color-white: #FFFFFF;
-    --color-background-soft: #F0F2F5; /* Latar belakang sangat terang */
-    --color-text-dark: #2C3E50; /* Teks Utama */
+    --color-background-soft: #F0F2F5; /* Latar belakang untuk kedalaman */
+    --color-text-dark: #2C3E50; 
     --color-text-secondary: #7F8C8D; 
+    --color-shadow-light: rgba(0,0,0,0.05);
+    --color-shadow-deep: rgba(0,0,0,0.15);
 
     /* Font Estetik */
-    --font-heading: 'Verdana', sans-serif; /* Simpel tapi berkelas */
+    --font-heading: 'Verdana', sans-serif; 
     --font-body: 'Arial', sans-serif; 
 }
 
@@ -24,11 +26,11 @@ body {
     font-family: var(--font-body);
     margin: 0;
     padding: 0;
-    background-color: var(--color-background-soft); /* Background Soft */
+    background-color: var(--color-background-soft);
     color: var(--color-text-dark);
     line-height: 1.6;
     font-size: 16px;
-    padding-bottom: 70px; /* Ruang untuk fixed footer di HP */
+    padding-bottom: 70px; /* Ruang untuk fixed footer */
 }
 
 .container {
@@ -37,9 +39,10 @@ body {
     margin: 20px auto;
     padding: 30px;
     background-color: var(--color-white);
-    /* Efek 3D/Floating yang meniru desain Galaxy UI */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1), 0 0 0 5px var(--color-mint); 
-    border-radius: 25px; /* Sudut sangat melengkung */
+    /* Gaya Container Utama: Sudut Sangat Melengkung & Floating */
+    box-shadow: 0 10px 30px var(--color-shadow-light); 
+    border: 3px solid var(--color-mint); /* Border luar yang tebal */
+    border-radius: 35px; /* Sudut Sangat Melengkung */
 }
 section {
     padding: 30px 0; 
@@ -65,26 +68,26 @@ h2 {
     margin-bottom: 30px;
 }
 
-/* --- HEADER & NAVIGASI DESKTOP (INLINE) --- */
+/* --- HEADER & NAVIGASI DESKTOP --- */
 header {
     background-color: var(--color-white); 
     padding: 1.5em 0;
     text-align: center;
-    border-bottom: 3px solid var(--color-teal-soft);
 }
 
 #desktop-nav a {
     color: var(--color-text-dark);
     text-decoration: none;
     font-weight: 500;
-    margin: 0 15px;
-    padding: 5px 10px;
-    border-radius: 15px; /* Desktop link juga bubble */
-    transition: background-color 0.3s;
+    margin: 0 10px;
+    padding: 8px 15px;
+    border-radius: 20px; /* Sudut melengkung untuk desktop nav */
+    transition: background-color 0.3s, box-shadow 0.3s;
     background-color: var(--color-cream);
 }
 #desktop-nav a:hover {
     background-color: var(--color-pink-soft); 
+    box-shadow: 0 5px 10px rgba(169, 104, 99, 0.2);
 }
 
 /* --- FIXED FOOTER NAVIGATION (MOBILE) --- */
@@ -100,11 +103,13 @@ header {
         bottom: 0;
         left: 0;
         width: 100%;
-        background-color: var(--color-teal-dark); /* Background Footer gelap */
-        box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
+        background-color: var(--color-teal-dark); /* Footer gelap untuk kontras */
+        box-shadow: 0 -5px 15px var(--color-shadow-deep);
         z-index: 1000;
         justify-content: space-around;
         padding: 5px 0;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px; /* Sudut melengkung di atas */
     }
     .nav-bubble {
         color: var(--color-text-dark);
@@ -117,21 +122,12 @@ header {
         flex-grow: 1;
         margin: 0 4px;
         background-color: var(--color-white); /* Bubble putih di footer gelap */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .nav-bubble:hover {
-        transform: none;
-        background-color: var(--color-pink-soft);
-    }
-    
-    /* Warna Bubble */
-    .color-1 { border: 2px solid var(--color-pink-soft); } 
-    .color-2 { border: 2px solid var(--color-teal-soft); } 
-    .color-3 { border: 2px solid var(--color-cream); } 
-    .color-4 { border: 2px solid var(--color-mint); } 
     .color-5 { background-color: var(--color-pink-dark); color: var(--color-white); }
 }
 
-/* --- LAYANAN (Floating Cards) --- */
+/* --- LAYANAN (Galaxy Cards) --- */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
@@ -140,28 +136,49 @@ header {
 .service-card {
     background-color: var(--color-white);
     padding: 20px;
-    border-radius: 15px;
-    /* Gaya Floating Card ala Galaxy UI */
+    border-radius: 20px; /* Sudut Melengkung Kuat */
+    /* Efek Floating Card */
     border: 1px solid var(--color-mint);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05), 0 0 0 3px var(--color-cream); 
+    box-shadow: 0 10px 20px var(--color-shadow-light); 
     transition: transform 0.3s, box-shadow 0.3s;
 }
 .service-card:hover {
     transform: translateY(-5px);
     border-color: var(--color-teal-dark); 
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15), 0 0 0 3px var(--color-teal-dark); 
+    box-shadow: 0 15px 30px var(--color-shadow-deep); /* Bayangan lebih dalam saat hover */
 }
 .service-card h3 {
-    color: var(--color-pink-dark); 
+    color: var(--color-teal-dark); 
     font-size: 1.2em;
     margin-top: 0;
 }
+.service-card p {
+    color: var(--color-text-secondary);
+    font-size: 0.9em;
+}
+/* Tombol Order/Aksi di Card */
+.service-card a {
+    display: inline-block;
+    background-color: var(--color-pink-soft);
+    color: var(--color-text-dark);
+    padding: 8px 18px;
+    border-radius: 15px;
+    margin-top: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+.service-card a:hover {
+    background-color: var(--color-pink-dark);
+    color: var(--color-white);
+}
+
 
 /* --- GALERI PELANGGAN (Floating Items) --- */
 #gallery-controls input {
     padding: 12px;
-    border: 1px solid var(--color-pink-soft); 
-    border-radius: 10px;
+    border: 2px solid var(--color-pink-soft); 
+    border-radius: 15px; /* Sudut Melengkung */
     font-size: 1em;
 }
 #gallery-controls input:focus {
@@ -172,25 +189,25 @@ header {
 .gallery-item {
     padding: 20px;
     margin-bottom: 15px;
-    border-radius: 15px;
+    border-radius: 20px;
     background-color: var(--color-white);
-    /* Gaya Floating */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px var(--color-shadow-light); /* Floating Item */
     border-left: 5px solid var(--color-teal-dark);
     transition: box-shadow 0.3s;
 }
 .gallery-item:hover {
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
+    box-shadow: 0 8px 20px var(--color-shadow-deep); 
 }
 .gallery-item a {
     display: block; 
-    background-color: var(--color-pink-dark); /* Tombol Pink Kontras */
+    background-color: var(--color-teal-dark); 
     color: var(--color-white);
     padding: 10px;
     border-radius: 10px;
+    font-weight: bold;
 }
 .gallery-item a:hover {
-    background-color: var(--color-teal-dark); /* Hover Teal */
+    background-color: var(--color-pink-dark); 
 }
 
 /* --- FOOTER --- */
@@ -201,6 +218,8 @@ footer {
     padding: 15px 0 20px 0;
     margin-top: 30px;
     font-size: 0.85em;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 /* --- RESPONSIF DESKTOP --- */
