@@ -1,185 +1,184 @@
-/* style.css - Tema Minimalist Warm Grey & Estetik */
+/* style.css - Tema Colorful, Mobile-First, dan Bubble Menu */
 
-/* --- TEMA GLOBAL & FONT --- */
+/* --- TEMA GLOBAL & RESET --- */
 :root {
-    --color-background-light: #F9F9F9; /* Abu-abu sangat terang, hangat */
-    --color-white: #FFFFFF; /* Putih murni */
-    --color-text-dark: #36454F; /* Abu-abu Gelap Hangat (Charcoal) */
-    --color-text-secondary: #708090; /* Slate Gray */
-    --color-accent-soft: #B8A79E; /* Cokelat Muda / Taupe sebagai aksen soft */
-    --color-border-subtle: #EBEBEB; 
+    /* Skema Warna Cerah/Pastel */
+    --color-white: #FFFFFF;
+    --color-background-soft: #F0F2F5; /* Latar belakang sangat terang */
+    --color-text-dark: #2C3E50; /* Dark Blue untuk teks utama */
+    
+    /* Warna Bubble */
+    --bubble-color-1: #FFC0CB; /* Pink */
+    --bubble-color-2: #87CEEB; /* Light Blue */
+    --bubble-color-3: #90EE90; /* Light Green */
+    --bubble-color-4: #FFD700; /* Gold/Yellow */
+    --bubble-color-5: #FF6347; /* Tomato Red */
 
-    /* Font Estetik */
-    --font-heading: 'Times New Roman', Times, serif; 
-    --font-body: 'Arial', sans-serif; 
+    --font-heading: 'Verdana', sans-serif; 
+    --font-body: 'Arial', sans-serif;
 }
 
 body {
     font-family: var(--font-body);
     margin: 0;
     padding: 0;
-    background-color: var(--color-background-light);
+    background-color: var(--color-background-soft); /* Hindari Full Black */
     color: var(--color-text-dark);
-    line-height: 1.7;
-    font-size: 15px;
+    line-height: 1.6;
+    font-size: 16px;
 }
 
 .container {
-    width: 90%;
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 40px;
+    width: 95%; /* Lebih lebar di HP */
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
     background-color: var(--color-white);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Bayangan sangat lembut */
-    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 15px;
 }
 section {
-    padding: 50px 0;
-    border-bottom: 1px solid var(--color-border-subtle);
+    padding: 30px 0; /* Padding lebih kecil untuk HP */
+    border-bottom: 1px dashed #DDD;
 }
 section:last-child {
     border-bottom: none;
 }
 
-/* --- HEADER & NAVIGASI --- */
+/* --- HEADER & NAVIGASI BUBBLE (MOBILE-FIRST) --- */
 header {
     background-color: var(--color-white); 
     color: var(--color-text-dark);
-    padding: 2em 0;
+    padding: 1.5em 0;
     text-align: center;
-    border-bottom: 1px solid var(--color-border-subtle);
+    border-bottom: 3px solid var(--color-background-soft);
 }
 header h1 {
     font-family: var(--font-heading);
-    margin-bottom: 5px;
-    font-size: 2.5em;
-    letter-spacing: 3px;
-    font-weight: 400;
+    font-size: 2em;
+    margin-bottom: 0;
 }
 header p {
     color: var(--color-text-secondary);
+    font-size: 0.9em;
 }
-nav {
-    margin-top: 20px;
+
+/* Penataan Navigasi untuk MOBILE */
+#main-nav {
+    display: flex;
+    flex-wrap: wrap; /* Biar bisa pindah baris di HP */
+    justify-content: center;
+    gap: 10px; /* Jarak antar bubble */
+    padding: 15px 0;
 }
-nav a {
+.nav-bubble {
     color: var(--color-text-dark);
-    margin: 0 18px;
     text-decoration: none;
-    font-weight: 500;
-    padding: 5px 0;
-    position: relative;
-    transition: color 0.3s;
+    font-weight: bold;
+    font-size: 0.9em;
+    padding: 10px 15px;
+    border-radius: 25px; /* Membuat bentuk bubble */
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-nav a:hover {
-    color: var(--color-accent-soft); /* Aksen warna soft saat hover */
-}
-/* Garis bawah estetik */
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--color-accent-soft);
-    transition: width 0.3s;
-}
-nav a:hover::after {
-    width: 40%;
+
+/* Pemberian Warna Bubble */
+.color-1 { background-color: var(--bubble-color-1); }
+.color-2 { background-color: var(--bubble-color-2); }
+.color-3 { background-color: var(--bubble-color-3); }
+.color-4 { background-color: var(--bubble-color-4); }
+.color-5 { background-color: var(--bubble-color-5); }
+
+.nav-bubble:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* --- JUDUL --- */
 h2 {
-    font-family: var(--font-heading);
     color: var(--color-text-dark);
     text-align: center;
-    font-size: 2.2em;
-    margin-bottom: 40px;
-    font-weight: 400;
+    font-size: 1.8em; /* Ukuran lebih kecil untuk HP */
+    margin-bottom: 20px;
 }
 
-/* --- LAYANAN (SERVICES) --- */
+/* --- LAYANAN (SERVICES) - Stacked di HP --- */
 .services-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsif Grid */
+    gap: 15px;
+    margin-top: 15px;
 }
 .service-card {
-    flex: 1 1 calc(33% - 30px);
-    background-color: var(--color-background-light); /* Lebih hangat dari putih */
-    padding: 30px;
-    border-radius: 8px;
-    text-align: center;
-    border: 1px solid var(--color-border-subtle); 
-    transition: box-shadow 0.3s, border-color 0.3s;
+    background-color: var(--color-background-soft);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid var(--bubble-color-2); /* Aksen warna */
+    transition: transform 0.3s;
 }
 .service-card:hover {
-    box-shadow: 0 0 0 3px var(--color-accent-soft); /* Border luar saat hover */
-    border-color: var(--color-background-light);
+    transform: scale(1.02);
 }
 .service-card h3 {
     color: var(--color-text-dark);
-    font-size: 1.4em;
-    font-family: var(--font-heading);
+    font-size: 1.2em;
     margin-top: 0;
-    margin-bottom: 10px;
 }
 .service-card p {
     color: var(--color-text-secondary);
     font-size: 0.9em;
 }
 
-/* --- GALERI PELANGGAN (CUSTOMER GALLERY) --- */
+/* --- GALERI PELANGGAN --- */
+#gallery-controls {
+    display: flex;
+    flex-direction: column; /* Selalu tumpuk di HP */
+    gap: 10px;
+    margin-bottom: 20px;
+}
 #gallery-controls input {
-    padding: 14px 18px;
-    border: 1px solid var(--color-border-subtle);
-    border-radius: 5px;
-    flex: 1;
-    max-width: 450px; 
+    padding: 12px;
+    border: 2px solid var(--bubble-color-4); /* Border warna kuning cerah */
+    border-radius: 8px;
     font-size: 1em;
-    color: var(--color-text-secondary);
-    transition: border-color 0.3s;
 }
 #gallery-controls input:focus {
-    border-color: var(--color-accent-soft);
+    box-shadow: 0 0 5px var(--bubble-color-4);
     outline: none;
 }
 .gallery-item {
-    border: 1px solid var(--color-border-subtle);
-    padding: 25px;
-    margin-bottom: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
     border-radius: 8px;
     background-color: var(--color-white);
-    transition: border-left 0.3s;
+    border: 1px solid var(--color-border-subtle);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
 }
-.gallery-item:hover {
-    border-left: 5px solid var(--color-accent-soft); /* Aksen warna soft di kiri saat hover */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+.gallery-item h3 {
+    font-size: 1.1em;
+    margin-top: 0;
 }
 .gallery-item a {
-    display: inline-block;
-    background-color: var(--color-text-dark); /* Tombol utama tetap kontras */
+    display: block; /* Tombol Penuh di HP */
+    background-color: var(--bubble-color-5); 
     color: var(--color-white);
-    padding: 10px 20px;
+    padding: 10px;
     text-decoration: none;
     border-radius: 5px;
-    margin-top: 15px;
-    font-weight: 500;
-    transition: background-color 0.3s;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: opacity 0.3s;
 }
 .gallery-item a:hover {
-    background-color: var(--color-accent-soft); /* Tombol berubah ke warna soft saat hover */
-    color: var(--color-text-dark);
+    opacity: 0.8;
 }
+
 .no-results {
+    padding: 20px;
     color: var(--color-text-secondary);
-    padding: 30px;
-    text-align: center;
-    font-style: italic;
-    border: 1px dashed var(--color-border-subtle);
+    border: 1px dashed #AAA;
     border-radius: 8px;
+    text-align: center;
 }
 
 /* --- FOOTER --- */
@@ -187,23 +186,32 @@ footer {
     background-color: var(--color-white);
     color: var(--color-text-secondary);
     text-align: center;
-    padding: 25px 0;
-    margin-top: 30px;
-    font-size: 0.85em;
+    padding: 15px 0;
+    margin-top: 20px;
+    font-size: 0.8em;
     border-top: 1px solid var(--color-border-subtle);
 }
 
-/* --- Responsive Adjustments --- */
-@media (max-width: 768px) {
+/* --- RESPONSIF DESKTOP (JANGAN GANGGU TAMPILAN HP) --- */
+@media (min-width: 768px) {
     .container {
-        padding: 20px;
+        padding: 40px;
     }
+    #main-nav {
+        gap: 25px; /* Jarak lebih besar di desktop */
+    }
+    .nav-bubble {
+        padding: 12px 20px;
+    }
+    /* Layout grid 4 kolom di desktop */
     .services-grid {
-        flex-direction: column;
-        gap: 20px;
+        grid-template-columns: repeat(4, 1fr); 
     }
-    nav a {
-        margin: 5px 10px;
-        display: inline-block;
+    #gallery-controls {
+        flex-direction: row; /* Kembali ke baris di desktop */
+    }
+    .gallery-item a {
+        display: inline-block; /* Tombol tidak penuh di desktop */
+        width: auto;
     }
 }
