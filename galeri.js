@@ -1,3 +1,4 @@
+// galeri.js - Logika Galeri Pelanggan (SIMPLIFIED & FINAL)
 // VERSI INI MENDUKUNG PENCARIAN BERDASARKAN NAMA ATAU TANGGAL (YYYY-MM-DD)
 
 const galleryList = document.getElementById('gallery-list');
