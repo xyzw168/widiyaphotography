@@ -1,37 +1,41 @@
-/* style.css - Tema Modern & Profesional untuk Widiya Photo */
+/* style.css - Tema Soft Minimalist & Estetik untuk Widiya Photo */
 
-/* --- TEMA GLOBAL & RESET --- */
+/* --- TEMA GLOBAL & FONT --- */
 :root {
-    --color-primary: #1a1a1a; /* Hitam pekat untuk teks/background header */
-    --color-secondary: #ffc107; /* Kuning Emas/Mustard sebagai accent */
-    --color-light: #f8f8f8; /* Background sangat terang */
-    --color-dark-gray: #555;
-    --color-white: #ffffff;
-    --font-heading: 'Georgia', serif; 
-    --font-body: 'Arial', sans-serif;
+    --color-background: #F8F9FA; /* Off-White lembut */
+    --color-text-primary: #212529; /* Hitam Teks */
+    --color-accent-soft: #D4AF37; /* Soft Gold/Kuning Mustard */
+    --color-subtle-border: #E9ECEF; 
+    --color-secondary-text: #6C757D; /* Abu-abu hangat */
+    --color-white: #FFFFFF;
+    
+    /* Font yang Estetik */
+    --font-heading: 'Times New Roman', Times, serif; 
+    --font-body: 'Poppins', Arial, sans-serif; /* Poppins jika tersedia, atau Arial */
 }
 
 body {
     font-family: var(--font-body);
     margin: 0;
     padding: 0;
-    background-color: var(--color-light);
-    color: var(--color-primary);
-    line-height: 1.6;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.7;
+    font-size: 16px;
 }
 
 .container {
     width: 90%;
-    max-width: 1200px;
-    margin: 30px auto;
-    padding: 30px 40px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 40px 50px;
     background-color: var(--color-white);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Bayangan sangat lembut */
+    border-radius: 15px;
 }
 section {
-    padding: 50px 0;
-    border-bottom: 1px solid #e0e0e0;
+    padding: 60px 0;
+    border-bottom: 1px solid var(--color-subtle-border);
 }
 section:last-child {
     border-bottom: none;
@@ -39,160 +43,163 @@ section:last-child {
 
 /* --- HEADER & NAVIGASI --- */
 header {
-    background-color: var(--color-primary); 
-    color: var(--color-light);
-    padding: 2.5em 20px;
+    background-color: var(--color-white); /* Header Putih Bersih */
+    color: var(--color-text-primary);
+    padding: 2em 20px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-bottom: 1px solid var(--color-subtle-border);
 }
 header h1 {
     font-family: var(--font-heading);
     margin-bottom: 5px;
-    font-size: 2.5em;
-    letter-spacing: 2px;
+    font-size: 2.8em;
+    letter-spacing: 3px;
+    font-weight: 400; /* Lebih ringan */
+}
+header p {
+    color: var(--color-secondary-text);
 }
 nav {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 nav a {
-    color: var(--color-light);
-    margin: 0 20px;
+    color: var(--color-text-primary);
+    margin: 0 18px;
     text-decoration: none;
     font-weight: 500;
-    padding: 8px 15px;
-    border-radius: 4px;
-    transition: color 0.3s, background-color 0.3s;
+    padding: 5px 10px;
+    position: relative;
+    transition: color 0.3s;
 }
 nav a:hover {
-    color: var(--color-primary);
-    background-color: var(--color-secondary); /* Aksen Emas saat hover */
+    color: var(--color-accent-soft);
+}
+/* Garis bawah estetik */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--color-accent-soft);
+    transition: width 0.3s;
+}
+nav a:hover::after {
+    width: 100%;
 }
 
 /* --- JUDUL --- */
 h2 {
     font-family: var(--font-heading);
-    color: var(--color-primary);
+    color: var(--color-text-primary);
     text-align: center;
-    font-size: 2.2em;
-    margin-bottom: 40px;
-    position: relative;
-    padding-bottom: 15px;
-}
-h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: var(--color-secondary);
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    font-weight: 400;
 }
 
 /* --- LAYANAN (SERVICES) --- */
-.services-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 20px;
-}
 .service-card {
     flex: 1 1 calc(33% - 30px);
     background-color: var(--color-white);
-    padding: 30px;
-    border-radius: 8px;
+    padding: 35px;
+    border-radius: 10px;
     text-align: center;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--color-subtle-border);
+    transition: transform 0.4s, border-color 0.4s;
 }
 .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-    border-color: var(--color-secondary);
+    transform: translateY(-5px);
+    border-color: var(--color-accent-soft);
 }
 .service-card h3 {
-    color: var(--color-secondary);
-    font-size: 1.5em;
+    color: var(--color-text-primary);
+    font-size: 1.6em;
     font-family: var(--font-heading);
     margin-top: 0;
+    margin-bottom: 15px;
+}
+.service-card p {
+    color: var(--color-secondary-text);
 }
 
 /* --- GALERI PELANGGAN (CUSTOMER GALLERY) --- */
-#galeri h2 {
-    margin-bottom: 20px;
-}
 #gallery-controls {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 30px;
+    gap: 20px;
+    margin-bottom: 40px;
     justify-content: center;
 }
-#gallery-controls input, #gallery-controls select {
-    padding: 14px;
-    border: 1px solid #ccc;
+#gallery-controls input {
+    padding: 15px 20px;
+    border: 1px solid var(--color-subtle-border);
     border-radius: 8px;
     flex: 1;
-    max-width: 400px; /* Batasi lebar input */
+    max-width: 500px; 
     font-size: 1em;
+    color: var(--color-secondary-text);
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 #gallery-controls input:focus {
-    border-color: var(--color-secondary);
-    box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+    border-color: var(--color-accent-soft);
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
     outline: none;
 }
 .gallery-item {
-    border: 1px solid #e0e0e0;
-    padding: 25px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    background-color: #fafafa;
-    transition: border-color 0.3s, background-color 0.3s;
+    border: 1px solid var(--color-subtle-border);
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    background-color: var(--color-white);
+    transition: box-shadow 0.3s;
 }
 .gallery-item:hover {
-    border-color: var(--color-secondary);
-    background-color: #fffaf0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Bayangan saat di-hover */
 }
 .gallery-item h3 {
+    color: var(--color-text-primary);
+    font-size: 1.4em;
     margin-top: 0;
-    color: var(--color-primary);
-    font-size: 1.3em;
-    border-bottom: 2px dotted #eee;
-    padding-bottom: 10px;
+    margin-bottom: 5px;
+}
+.gallery-item p {
+    color: var(--color-secondary-text);
+    font-size: 0.95em;
 }
 .gallery-item a {
     display: inline-block;
-    background-color: var(--color-secondary); 
-    color: var(--color-primary);
+    background-color: var(--color-accent-soft); 
+    color: var(--color-text-primary);
     padding: 10px 25px;
     text-decoration: none;
     border-radius: 5px;
     margin-top: 15px;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
+    font-weight: 600;
+    transition: background-color 0.3s;
 }
 .gallery-item a:hover {
-    background-color: #ffda6a;
+    background-color: #C5A034;
 }
 .no-results {
-    color: var(--color-dark-gray);
+    color: var(--color-secondary-text);
     padding: 40px;
     text-align: center;
     font-style: italic;
-    border: 1px dashed #ddd;
+    border: 1px dashed var(--color-subtle-border);
     border-radius: 8px;
 }
 
 /* --- FOOTER --- */
 footer {
-    background-color: var(--color-primary);
-    color: var(--color-dark-gray);
+    background-color: var(--color-white);
+    color: var(--color-secondary-text);
     text-align: center;
     padding: 30px 0;
-    margin-top: 40px;
+    margin-top: 50px;
     font-size: 0.9em;
+    border-top: 1px solid var(--color-subtle-border);
 }
 
 /* --- Responsive Adjustments --- */
@@ -205,12 +212,9 @@ footer {
         flex-direction: column;
         gap: 20px;
     }
-    .service-card {
-        flex: 1 1 100%;
-    }
     nav a {
-        display: block;
-        margin: 10px 0;
+        margin: 5px 10px;
+        display: inline-block;
     }
     #gallery-controls {
         flex-direction: column;
