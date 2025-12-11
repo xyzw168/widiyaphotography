@@ -1,24 +1,9 @@
 [
   {
-    "id": "WP-20251210",
-    "nama_pelanggan": "Keluarga Budi Santoso",
-    "tanggal_acara": "2025-12-10",
-    "kategori": "Khitanan",
-    "link_drive": "https://drive.google.com/drive/u/0/folders/LINK_BUDI"
-  },
-  {
-    "id": "WP-20251105",
-    "nama_pelanggan": "Pasangan Arya & Dewi",
-    "tanggal_acara": "2025-11-05",
-    "kategori": "Pernikahan",
-    "link_drive": "https://drive.google.com/drive/u/0/folders/LINK_ARYA"
-  },
-  {
-    "id": "WP-20251020",
-    "nama_pelanggan": "Studio Pas Foto Rina",
-    "tanggal_acara": "2025-10-20",
-    "kategori": "Pas Foto",
-    "link_drive": "https://drive.google.com/drive/u/0/folders/LINK_RINA"
+    "id": "WP-TEST-001",
+    "nama_pelanggan": "Pelanggan Uji Coba",
+    "tanggal_acara": "2025-01-01",
+    "kategori": "Uji Coba",
+    "link_drive": "#"
   }
-  // <--- PASTIKAN TIDAK ADA KOMA (,) DI BARIS INI
 ]
