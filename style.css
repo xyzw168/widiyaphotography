@@ -1,24 +1,20 @@
-/* style.css - Tema Galaxy UI Style (Teal & Pink) & Fixed Mobile Nav */
+/* style.css - Tema Lavender Bubble Cards (Persis Gambar Beranda.png) */
 
-/* --- TEMA GLOBAL & PALET WARNA ANDA --- */
+/* --- TEMA GLOBAL & PALET WARNA BARU (Lavender/Ungu) --- */
 :root {
-    /* Palet Warna Anda (Teal & Pink) */
-    --color-pink-dark: #A96863;
-    --color-pink-soft: #F9B6BB;
-    --color-cream: #F8E2E3;
-    --color-mint: #C4E3D8;
-    --color-teal-soft: #8AC9C9;
-    --color-teal-dark: #42A8A8; 
+    /* Palet Warna dari Gambar Beranda.png */
+    --color-primary-dark: #4A4E69; /* Ungu gelap untuk teks/judul */
+    --color-lavender-light: #C0C0D8; /* Lavender sangat terang, background utama bubble */
+    --color-lavender-mid: #9E9EBF; /* Lavender sedang, background section */
+    --color-button-pink: #F7A8B7; /* Pink untuk tombol Order */
     
     --color-white: #FFFFFF;
-    --color-background-soft: #F0F2F5; /* Latar belakang untuk kedalaman */
+    --color-background-soft: #F0F2F5; 
     --color-text-dark: #2C3E50; 
     --color-text-secondary: #7F8C8D; 
-    --color-shadow-light: rgba(0,0,0,0.05);
-    --color-shadow-deep: rgba(0,0,0,0.15);
 
-    /* Font Estetik */
-    --font-heading: 'Verdana', sans-serif; 
+    /* Font Estetik (Menggunakan serif untuk judul sesuai gambar) */
+    --font-heading: 'Georgia', serif; 
     --font-body: 'Arial', sans-serif; 
 }
 
@@ -30,204 +26,235 @@ body {
     color: var(--color-text-dark);
     line-height: 1.6;
     font-size: 16px;
-    padding-bottom: 70px; /* Ruang untuk fixed footer */
+    padding-bottom: 70px; 
 }
 
 .container {
     width: 95%; 
-    max-width: 1000px;
+    max-width: 500px; /* Batasi lebar container agar mirip tampilan HP di gambar */
     margin: 20px auto;
-    padding: 30px;
-    background-color: var(--color-white);
-    /* Gaya Container Utama: Sudut Sangat Melengkung & Floating */
-    box-shadow: 0 10px 30px var(--color-shadow-light); 
-    border: 3px solid var(--color-mint); /* Border luar yang tebal */
-    border-radius: 35px; /* Sudut Sangat Melengkung */
+    padding: 0; /* Hapus padding agar section penuh */
+    background-color: transparent; /* Container tidak berwarna */
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
 }
 section {
-    padding: 30px 0; 
-    border-bottom: 1px dashed var(--color-cream);
-}
-section:last-child {
+    padding: 0;
+    margin-bottom: 20px;
     border-bottom: none;
 }
 
-/* --- JUDUL & TIPOGRAFI --- */
-h1 {
-    font-family: var(--font-heading);
-    font-size: 2.2em;
-    margin-bottom: 0;
-    color: var(--color-teal-dark); 
-    letter-spacing: 1px;
-}
-h2 {
-    font-family: var(--font-heading);
-    color: var(--color-pink-dark); 
+/* --- HEADER (Bagian Paling Atas) --- */
+header {
+    background-color: var(--color-lavender-light); 
+    padding: 30px 20px 20px 20px;
     text-align: center;
-    font-size: 1.8em; 
-    margin-bottom: 30px;
+    border-radius: 35px; /* Sudut Sangat Melengkung */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+header h1 {
+    font-family: var(--font-heading);
+    font-size: 2.8em;
+    margin-bottom: 5px;
+    color: var(--color-primary-dark); /* Ungu gelap untuk Judul Utama */
+    font-weight: 700;
+}
+header p {
+    color: var(--color-primary-dark);
+    font-size: 1em;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-white); /* Garis putih di bawah sub-judul */
+    width: 80%;
+    margin: 0 auto;
 }
 
-/* --- HEADER & NAVIGASI DESKTOP --- */
-header {
-    background-color: var(--color-white); 
-    padding: 1.5em 0;
-    text-align: center;
+/* --- NAVIGASI BUBBLE (Beranda, Layanan, dll.) --- */
+#desktop-nav {
+    background-color: var(--color-lavender-mid); /* Background nav container */
+    padding: 15px 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
 
 #desktop-nav a {
-    color: var(--color-text-dark);
+    color: var(--color-white);
     text-decoration: none;
-    font-weight: 500;
-    margin: 0 10px;
+    font-weight: bold;
+    font-size: 0.9em;
     padding: 8px 15px;
-    border-radius: 20px; /* Sudut melengkung untuk desktop nav */
-    transition: background-color 0.3s, box-shadow 0.3s;
-    background-color: var(--color-cream);
+    border-radius: 20px; 
+    transition: background-color 0.3s;
+    background-color: var(--color-primary-dark); /* Warna link nav sama dengan Ungu gelap */
 }
 #desktop-nav a:hover {
-    background-color: var(--color-pink-soft); 
-    box-shadow: 0 5px 10px rgba(169, 104, 99, 0.2);
+    background-color: #6a6f94; /* Sedikit lebih terang saat hover */
 }
 
+/* --- SECTION SELAMAT DATANG (Tumpukan kedua) --- */
+#welcome {
+    background-color: var(--color-lavender-mid); /* Background section */
+    padding: 30px 20px;
+    border-radius: 35px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+#welcome h2 {
+    font-family: var(--font-heading);
+    color: var(--color-primary-dark);
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+#welcome p {
+    background-color: var(--color-white);
+    padding: 15px;
+    border-radius: 25px;
+    color: var(--color-text-dark);
+    margin: 15px auto;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+/* --- SECTION LAYANAN (Tumpukan Ketiga) --- */
+#layanan {
+    background-color: var(--color-lavender-light); 
+    padding: 30px 20px;
+    border-radius: 35px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+#layanan h2 {
+    background-color: var(--color-white);
+    color: var(--color-primary-dark);
+    font-family: var(--font-heading);
+    font-size: 2.2em;
+    padding: 15px;
+    border-radius: 25px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+.services-grid {
+    display: block; /* Stack vertikal persis seperti gambar */
+    gap: 20px;
+}
+.service-card {
+    background-color: var(--color-white);
+    padding: 25px;
+    border-radius: 25px;
+    margin-bottom: 15px;
+    text-align: left; /* Teks rata kiri */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+}
+.service-card h3 {
+    color: var(--color-primary-dark);
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.service-card p {
+    color: var(--color-text-secondary);
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+/* Tombol Order Pink */
+.service-card a {
+    display: inline-block;
+    background-color: var(--color-button-pink);
+    color: var(--color-white);
+    padding: 10px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(247, 168, 183, 0.5); /* Shadow untuk tombol */
+}
+.service-card a:hover {
+    background-color: #e691a0;
+}
+
+/* --- BAGIAN LAIN (Portofolio, Galeri) - Pertahankan Gaya Card --- */
+#portofolio, #galeri {
+    background-color: var(--color-lavender-light); 
+    padding: 30px 20px;
+    border-radius: 35px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+#portofolio h2, #galeri h2 {
+    background-color: var(--color-white);
+    color: var(--color-primary-dark);
+    font-family: var(--font-heading);
+    font-size: 2.2em;
+    padding: 15px;
+    border-radius: 25px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+#galeri h2 {
+    font-size: 1.5em; /* Judul galeri lebih kecil */
+}
+
+
 /* --- FIXED FOOTER NAVIGATION (MOBILE) --- */
+/* Menggunakan style yang lebih flat agar tidak mengganggu fokus ke kartu utama */
 #mobile-nav-fixed {
     display: none; 
 }
-
 @media (max-width: 768px) {
     #desktop-nav { display: none; } 
+    /* Tampilkan navigasi footer dengan warna gelap */
     #mobile-nav-fixed {
         display: flex;
         position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
-        background-color: var(--color-teal-dark); /* Footer gelap untuk kontras */
-        box-shadow: 0 -5px 15px var(--color-shadow-deep);
+        background-color: var(--color-primary-dark); /* Ungu gelap */
+        box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
         z-index: 1000;
         justify-content: space-around;
-        padding: 5px 0;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px; /* Sudut melengkung di atas */
+        padding: 10px 0;
     }
     .nav-bubble {
-        color: var(--color-text-dark);
+        color: var(--color-white);
         text-decoration: none;
         font-weight: bold;
-        font-size: 0.75em; 
-        padding: 8px 5px;
-        border-radius: 20px; 
+        font-size: 0.7em; 
+        padding: 5px;
         text-align: center;
         flex-grow: 1;
         margin: 0 4px;
-        background-color: var(--color-white); /* Bubble putih di footer gelap */
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: color 0.3s;
+        border-radius: 0; /* Flat */
+        background-color: transparent; /* Flat */
     }
-    .color-5 { background-color: var(--color-pink-dark); color: var(--color-white); }
+    .nav-bubble:hover {
+        color: var(--color-lavender-light);
+    }
+    /* Sembunyikan navigasi di bagian header untuk HP */
+    header nav {
+        display: none;
+    }
 }
 
-/* --- LAYANAN (Galaxy Cards) --- */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 20px;
-}
-.service-card {
-    background-color: var(--color-white);
-    padding: 20px;
-    border-radius: 20px; /* Sudut Melengkung Kuat */
-    /* Efek Floating Card */
-    border: 1px solid var(--color-mint);
-    box-shadow: 0 10px 20px var(--color-shadow-light); 
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.service-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--color-teal-dark); 
-    box-shadow: 0 15px 30px var(--color-shadow-deep); /* Bayangan lebih dalam saat hover */
-}
-.service-card h3 {
-    color: var(--color-teal-dark); 
-    font-size: 1.2em;
-    margin-top: 0;
-}
-.service-card p {
-    color: var(--color-text-secondary);
-    font-size: 0.9em;
-}
-/* Tombol Order/Aksi di Card */
-.service-card a {
-    display: inline-block;
-    background-color: var(--color-pink-soft);
-    color: var(--color-text-dark);
-    padding: 8px 18px;
-    border-radius: 15px;
-    margin-top: 10px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-.service-card a:hover {
-    background-color: var(--color-pink-dark);
-    color: var(--color-white);
-}
-
-
-/* --- GALERI PELANGGAN (Floating Items) --- */
-#gallery-controls input {
-    padding: 12px;
-    border: 2px solid var(--color-pink-soft); 
-    border-radius: 15px; /* Sudut Melengkung */
-    font-size: 1em;
-}
-#gallery-controls input:focus {
-    box-shadow: 0 0 0 3px var(--color-pink-soft);
-    border-color: var(--color-pink-dark);
-    outline: none;
-}
-.gallery-item {
-    padding: 20px;
-    margin-bottom: 15px;
-    border-radius: 20px;
-    background-color: var(--color-white);
-    box-shadow: 0 5px 15px var(--color-shadow-light); /* Floating Item */
-    border-left: 5px solid var(--color-teal-dark);
-    transition: box-shadow 0.3s;
-}
-.gallery-item:hover {
-    box-shadow: 0 8px 20px var(--color-shadow-deep); 
-}
-.gallery-item a {
-    display: block; 
-    background-color: var(--color-teal-dark); 
-    color: var(--color-white);
-    padding: 10px;
-    border-radius: 10px;
-    font-weight: bold;
-}
-.gallery-item a:hover {
-    background-color: var(--color-pink-dark); 
-}
 
 /* --- FOOTER --- */
 footer {
-    background-color: var(--color-teal-soft); 
-    color: var(--color-text-dark);
+    background-color: var(--color-primary-dark); 
+    color: var(--color-lavender-light);
     text-align: center;
     padding: 15px 0 20px 0;
     margin-top: 30px;
     font-size: 0.85em;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
-
-/* --- RESPONSIF DESKTOP --- */
-@media (min-width: 769px) {
-    .container {
-        padding: 40px;
-    }
-    .services-grid {
-        grid-template-columns: repeat(4, 1fr); 
-    }
+    border-radius: 20px;
 }
