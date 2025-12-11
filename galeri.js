@@ -1,75 +1,72 @@
-// galeri.js - Logika Galeri Pelanggan Widiya Photo
+// galeri.js - Logika Galeri Pelanggan (SIMPLIFIED)
+
+// Ambil elemen DOM utama (Hapus sortSelect)
 const galleryList = document.getElementById('gallery-list');
 const searchInput = document.getElementById('search-input');
-const sortSelect = document.getElementById('sort-select');
 let photoData = [];
-let isDataLoaded = false; // <-- VARIABEL STATUS BARU
+let isDataLoaded = false; 
 
+// Fungsi untuk memuat data JSON dari file statis
 async function loadGalleryData() {
+    // Tampilkan pesan loading saat memulai
     galleryList.innerHTML = '<p class="no-results">Memuat data...</p>';
     
     try {
         const response = await fetch('galeri-data.json'); 
         
         if (!response.ok) {
-            throw new Error(`Gagal memuat data. Status: ${response.status} (${response.statusText}).`);
+            throw new Error(`Gagal memuat data. Status: ${response.status}.`);
         }
         
         photoData = await response.json();
-        isDataLoaded = true; // <-- DATA BERHASIL DIMUAT
+        isDataLoaded = true; // Data berhasil dimuat
 
-        // Panggil filterGallery untuk menampilkan pesan sambutan default
+        // Tampilkan pesan sambutan default
         filterGallery(); 
 
     } catch (error) {
         // Blok penanganan error
         console.error('CRITICAL ERROR:', error);
         galleryList.innerHTML = `<p class="no-results" style="color: red;">
-            ❌ ERROR: Gagal memuat data galeri. <br>
-            Cek konsol browser (F12) untuk detail error teknis. <br>
+            ❌ ERROR KRITIS: Gagal memuat data. <br>
             Pesan Teknis: ${error.message}
         </p>`;
     }
 }
 
+// Fungsi utama untuk memfilter (Hapus Logika Sortir)
 function filterGallery() {
+    let filteredData = [...photoData]; 
     const searchTerm = searchInput.value.toLowerCase().trim();
 
-    // LOGIKA PERUBAHAN: TAMPILKAN PESAN SAMBUTAN JIKA KOSONG
+    // 1. TAMPILKAN PESAN SAMBUTAN JIKA KOSONG
     if (isDataLoaded && searchTerm.length < 2) { 
         galleryList.innerHTML = '<p class="no-results">Silakan ketik minimal 2 huruf pertama nama Anda di kolom pencarian di atas.</p>';
-        return; // Hentikan fungsi agar tidak menampilkan semua data atau error
+        return; 
     }
-
-    // Hanya lanjutkan filtering jika ada term pencarian (minimal 2 karakter)
-    let filteredData = [...photoData]; 
-    const sortMethod = sortSelect.value;
     
-    // ... (Logika filter dan sort di sini) ...
+    // 2. FILTER BERDASARKAN NAMA (JIKA ADA INPUT)
     if (searchTerm) {
         filteredData = filteredData.filter(item => 
             item.nama_pelanggan.toLowerCase().includes(searchTerm)
         );
     }
-    if (sortMethod === 'terbaru') {
-        filteredData.sort((a, b) => new Date(b.tanggal_acara) - new Date(a.tanggal_acara));
-    } else if (sortMethod === 'terlama') {
-        filteredData.sort((a, b) => new Date(a.tanggal_acara) - new Date(b.tanggal_acara));
-    }
-    // TAMPILKAN HASIL
+
+    // 3. TAMPILKAN HASIL
     renderGallery(filteredData);
 }
 
-// Fungsi renderGallery (tidak diubah)
+// Fungsi untuk menampilkan hasil
 function renderGallery(data) {
     galleryList.innerHTML = ''; 
 
     if (data.length === 0) {
-        galleryList.innerHTML = '<p class="no-results">Tidak ada hasil yang ditemukan untuk nama tersebut. Silakan cek kembali ejaan Anda.</p>';
+        galleryList.innerHTML = '<p class="no-results">Tidak ada hasil yang ditemukan. Cek kembali ejaan atau hubungi admin.</p>';
         return;
     }
 
     data.forEach(item => {
+        // Format tanggal (masih berguna)
         const dateObj = new Date(item.tanggal_acara);
         const formattedDate = dateObj instanceof Date && !isNaN(dateObj) ?
                               dateObj.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }) :
