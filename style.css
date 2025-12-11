@@ -1,18 +1,19 @@
-/* style.css - Tema Colorful, Mobile-First, dan Bubble Menu */
+/* style.css - Tema Vibrant Pastel (Teal & Pink) & Mobile-First */
 
-/* --- TEMA GLOBAL & RESET --- */
+/* --- TEMA GLOBAL & PALET WARNA BARU --- */
 :root {
-    /* Skema Warna Cerah/Pastel */
+    /* Warna dari palet gambar yang disediakan */
+    --color-pink-dark: #A96863;
+    --color-pink-soft: #F9B6BB;
+    --color-cream: #F8E2E3;
+    --color-mint: #C4E3D8;
+    --color-teal-soft: #8AC9C9;
+    --color-teal-dark: #42A8A8; 
+    
     --color-white: #FFFFFF;
     --color-background-soft: #F0F2F5; /* Latar belakang sangat terang */
     --color-text-dark: #2C3E50; /* Dark Blue untuk teks utama */
-    
-    /* Warna Bubble */
-    --bubble-color-1: #FFC0CB; /* Pink */
-    --bubble-color-2: #87CEEB; /* Light Blue */
-    --bubble-color-3: #90EE90; /* Light Green */
-    --bubble-color-4: #FFD700; /* Gold/Yellow */
-    --bubble-color-5: #FF6347; /* Tomato Red */
+    --color-text-secondary: #7F8C8D; /* Abu-abu untuk teks pendukung */
 
     --font-heading: 'Verdana', sans-serif; 
     --font-body: 'Arial', sans-serif;
@@ -22,14 +23,14 @@ body {
     font-family: var(--font-body);
     margin: 0;
     padding: 0;
-    background-color: var(--color-background-soft); /* Hindari Full Black */
+    background-color: var(--color-background-soft);
     color: var(--color-text-dark);
     line-height: 1.6;
     font-size: 16px;
 }
 
 .container {
-    width: 95%; /* Lebih lebar di HP */
+    width: 95%; 
     max-width: 900px;
     margin: 20px auto;
     padding: 20px;
@@ -38,8 +39,8 @@ body {
     border-radius: 15px;
 }
 section {
-    padding: 30px 0; /* Padding lebih kecil untuk HP */
-    border-bottom: 1px dashed #DDD;
+    padding: 30px 0; 
+    border-bottom: 1px dashed var(--color-mint); /* Garis putus-putus berwarna mint */
 }
 section:last-child {
     border-bottom: none;
@@ -51,24 +52,25 @@ header {
     color: var(--color-text-dark);
     padding: 1.5em 0;
     text-align: center;
-    border-bottom: 3px solid var(--color-background-soft);
+    border-bottom: 3px solid var(--color-teal-soft);
 }
 header h1 {
     font-family: var(--font-heading);
     font-size: 2em;
     margin-bottom: 0;
+    color: var(--color-teal-dark); /* Judul dengan warna Teal */
 }
 header p {
     color: var(--color-text-secondary);
     font-size: 0.9em;
 }
 
-/* Penataan Navigasi untuk MOBILE */
+/* Penataan Navigasi Bubble */
 #main-nav {
     display: flex;
-    flex-wrap: wrap; /* Biar bisa pindah baris di HP */
+    flex-wrap: wrap; 
     justify-content: center;
-    gap: 10px; /* Jarak antar bubble */
+    gap: 10px; 
     padding: 15px 0;
 }
 .nav-bubble {
@@ -77,50 +79,52 @@ header p {
     font-weight: bold;
     font-size: 0.9em;
     padding: 10px 15px;
-    border-radius: 25px; /* Membuat bentuk bubble */
+    border-radius: 25px; 
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
-/* Pemberian Warna Bubble */
-.color-1 { background-color: var(--bubble-color-1); }
-.color-2 { background-color: var(--bubble-color-2); }
-.color-3 { background-color: var(--bubble-color-3); }
-.color-4 { background-color: var(--bubble-color-4); }
-.color-5 { background-color: var(--bubble-color-5); }
+/* Pemberian Warna Bubble dari Palet Anda */
+.color-1 { background-color: var(--color-pink-soft); } 
+.color-2 { background-color: var(--color-teal-soft); } 
+.color-3 { background-color: var(--color-cream); } 
+.color-4 { background-color: var(--color-mint); } 
+.color-5 { background-color: var(--color-pink-dark); color: var(--color-white); } /* Kontak Teks Putih */
 
 .nav-bubble:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px); /* Efek melayang lebih terasa */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* --- JUDUL --- */
 h2 {
-    color: var(--color-text-dark);
+    color: var(--color-pink-dark); /* Judul dengan warna Pink Gelap */
     text-align: center;
-    font-size: 1.8em; /* Ukuran lebih kecil untuk HP */
+    font-size: 1.8em; 
     margin-bottom: 20px;
 }
 
-/* --- LAYANAN (SERVICES) - Stacked di HP --- */
+/* --- LAYANAN (SERVICES) --- */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsif Grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 15px;
     margin-top: 15px;
 }
 .service-card {
-    background-color: var(--color-background-soft);
+    background-color: var(--color-white);
     padding: 20px;
     border-radius: 10px;
-    border-left: 5px solid var(--bubble-color-2); /* Aksen warna */
-    transition: transform 0.3s;
+    border: 2px solid var(--color-cream); /* Border lembut */
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 .service-card:hover {
-    transform: scale(1.02);
+    border-color: var(--color-teal-soft); /* Aksen Teal saat hover */
+    box-shadow: 0 0 10px rgba(66, 168, 168, 0.2);
 }
 .service-card h3 {
-    color: var(--color-text-dark);
+    color: var(--color-teal-dark);
     font-size: 1.2em;
     margin-top: 0;
 }
@@ -132,18 +136,18 @@ h2 {
 /* --- GALERI PELANGGAN --- */
 #gallery-controls {
     display: flex;
-    flex-direction: column; /* Selalu tumpuk di HP */
+    flex-direction: column; /* Tumpuk di HP */
     gap: 10px;
     margin-bottom: 20px;
 }
 #gallery-controls input {
     padding: 12px;
-    border: 2px solid var(--bubble-color-4); /* Border warna kuning cerah */
+    border: 2px solid var(--color-pink-soft); /* Border Pink Lembut */
     border-radius: 8px;
     font-size: 1em;
 }
 #gallery-controls input:focus {
-    box-shadow: 0 0 5px var(--bubble-color-4);
+    box-shadow: 0 0 8px rgba(249, 182, 187, 0.7);
     outline: none;
 }
 .gallery-item {
@@ -151,67 +155,63 @@ h2 {
     margin-bottom: 10px;
     border-radius: 8px;
     background-color: var(--color-white);
-    border: 1px solid var(--color-border-subtle);
+    border-left: 5px solid var(--color-mint); /* Garis kiri Mint */
     box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    transition: background-color 0.3s;
+}
+.gallery-item:hover {
+    background-color: #fcfcfc;
 }
 .gallery-item h3 {
     font-size: 1.1em;
     margin-top: 0;
+    color: var(--color-pink-dark); /* Warna pink untuk nama pelanggan */
 }
 .gallery-item a {
-    display: block; /* Tombol Penuh di HP */
-    background-color: var(--bubble-color-5); 
+    display: block; 
+    background-color: var(--color-teal-dark); /* Tombol Teal yang kontras */
     color: var(--color-white);
     padding: 10px;
     text-decoration: none;
     border-radius: 5px;
     margin-top: 10px;
     font-weight: bold;
-    transition: opacity 0.3s;
+    transition: background-color 0.3s;
 }
 .gallery-item a:hover {
-    opacity: 0.8;
-}
-
-.no-results {
-    padding: 20px;
-    color: var(--color-text-secondary);
-    border: 1px dashed #AAA;
-    border-radius: 8px;
-    text-align: center;
+    background-color: var(--color-pink-dark); /* Tombol hover berubah menjadi Pink Gelap */
 }
 
 /* --- FOOTER --- */
 footer {
-    background-color: var(--color-white);
-    color: var(--color-text-secondary);
+    background-color: var(--color-teal-soft); /* Footer warna Teal Soft */
+    color: var(--color-text-dark);
     text-align: center;
     padding: 15px 0;
     margin-top: 20px;
     font-size: 0.8em;
-    border-top: 1px solid var(--color-border-subtle);
 }
 
-/* --- RESPONSIF DESKTOP (JANGAN GANGGU TAMPILAN HP) --- */
+/* --- RESPONSIF DESKTOP --- */
 @media (min-width: 768px) {
     .container {
         padding: 40px;
     }
     #main-nav {
-        gap: 25px; /* Jarak lebih besar di desktop */
+        gap: 20px; 
     }
     .nav-bubble {
         padding: 12px 20px;
     }
-    /* Layout grid 4 kolom di desktop */
     .services-grid {
         grid-template-columns: repeat(4, 1fr); 
     }
     #gallery-controls {
-        flex-direction: row; /* Kembali ke baris di desktop */
+        flex-direction: row; 
+        gap: 20px;
     }
     .gallery-item a {
-        display: inline-block; /* Tombol tidak penuh di desktop */
+        display: inline-block; 
         width: auto;
     }
 }
