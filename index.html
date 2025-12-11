@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widiya Photo - Fotografi & Cetak Foto</title>
+    <style>
+        /* --- CSS Dasar (Internal Style) --- */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em 20px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #007bff; /* Warna biru untuk judul */
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .service-card {
+            flex: 1 1 calc(33% - 20px); /* 3 kartu per baris */
+            background-color: #e9f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        /* --- CSS Galeri Pelanggan --- */
+        #gallery-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        #gallery-controls input, #gallery-controls select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            flex: 1;
+            min-width: 200px;
+        }
+        .gallery-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+        }
+        .gallery-item h3 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        .gallery-item a {
+            display: inline-block;
+            background-color: #28a745; /* Warna hijau untuk link Drive */
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .gallery-item a:hover {
+            background-color: #1e7e34;
+        }
+        #gallery-list {
+            min-height: 100px; /* Agar tidak loncat saat memuat */
+            text-align: center;
+        }
+        .no-results {
+            color: gray;
+            padding: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .service-card {
+                flex: 1 1 100%; /* 1 kartu per baris di HP */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Widiya Photo</h1>
+        <p>Abadikan Setiap Momen Berharga Anda</p>
+        <nav>
+            <a href="#beranda">Beranda</a>
+            <a href="#layanan">Layanan</a>
+            <a href="#portofolio">Portofolio</a>
+            <a href="#galeri">Galeri Pelanggan</a>
+            <a href="https://wa.me/nomorwhatsappanda" target="_blank">Kontak (WhatsApp)</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <section id="beranda">
+            <h2>Selamat Datang di Widiya Photo</h2>
+            <p>Kami menyediakan jasa fotografi untuk segala kebutuhan Anda, mulai dari momen pernikahan, acara khitanan, hingga kebutuhan pas foto resmi dan layanan cetak foto berkualitas tinggi.</p>
+            </section>
+
+        <section id="layanan">
+            <h2>Layanan Kami</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Pernikahan & Pre-wedding</h3>
+                    <p>Dokumentasi full-day, album eksklusif, dan cetak kanvas besar.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Khitanan & Acara Keluarga</h3>
+                    <p>Liputan momen penting keluarga dengan hasil yang ceria dan hangat.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Pas Foto & Foto Studio</h3>
+                    <p>Pas foto untuk ijazah, lamaran, atau keperluan visa dengan retouching cepat.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Cetak Foto</h3>
+                    <p>Cetak berbagai ukuran (4R hingga A2) dengan kertas premium dan bingkai custom.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portofolio">
+            <h2>Hasil Karya (Portofolio)</h2>
+            <p>Di sini Anda bisa menampilkan *grid* foto-foto terbaik Anda (Pernikahan, Khitanan, Studio, dll.). Anda bisa menggunakan link ke folder Google Drive publik untuk setiap kategori.</p>
+            </section>
+
+        <section id="galeri">
+            <h2>Galeri Pelanggan (Pengambilan File)</h2>
+            <p>Silakan cari nama Anda di kolom pencarian atau urutkan berdasarkan tanggal acara untuk menemukan link Google Drive foto Anda.</p>
+            
+            <div id="gallery-controls">
+                <input type="text" id="search-input" placeholder="Cari Nama Pelanggan..." onkeyup="filterGallery()">
+                <select id="sort-select" onchange="filterGallery()">
+                    <option value="terbaru">Urutkan: Tanggal Terbaru</option>
+                    <option value="terlama">Urutkan: Tanggal Terlama</option>
+                </select>
+            </div>
+
+            <div id="gallery-list">
+                <p>Memuat data galeri...</p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; background-color: #333; color: white;">
+            &copy; 2025 Widiya Photo. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="galeri.js"></script> 
+</body>
+</html>
