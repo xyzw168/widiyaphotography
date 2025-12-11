@@ -1,0 +1,24 @@
+[
+  {
+    "id": "WP-20251210",
+    "nama_pelanggan": "Keluarga Budi Santoso",
+    "tanggal_acara": "2025-12-10",
+    "kategori": "Khitanan",
+    "link_drive": "https://drive.google.com/drive/u/0/folders/GANTI_INI_DENGAN_LINK_FOLDER_ASLI_BUDI_SANTOSO"
+  },
+  {
+    "id": "WP-20251105",
+    "nama_pelanggan": "Pasangan Arya & Dewi",
+    "tanggal_acara": "2025-11-05",
+    "kategori": "Pernikahan",
+    "link_drive": "https://drive.google.com/drive/u/0/folders/GANTI_INI_DENGAN_LINK_FOLDER_ASLI_ARYA_DEWI"
+  },
+  {
+    "id": "WP-20251020",
+    "nama_pelanggan": "Studio Pas Foto Rina",
+    "tanggal_acara": "2025-10-20",
+    "kategori": "Pas Foto",
+    "link_drive": "https://drive.google.com/drive/u/0/folders/GANTI_INI_DENGAN_LINK_FOLDER_ASLI_RINA"
+  }
+  /* Anda bisa menambahkan data baru di bawah ini */
+]
