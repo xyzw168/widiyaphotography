@@ -1,14 +1,11 @@
-// galeri.js - Logika Galeri Pelanggan (SIMPLIFIED)
+// galeri.js - Logika Galeri Pelanggan (SIMPLIFIED & FINAL)
 
-// Ambil elemen DOM utama (Hapus sortSelect)
 const galleryList = document.getElementById('gallery-list');
 const searchInput = document.getElementById('search-input');
 let photoData = [];
 let isDataLoaded = false; 
 
-// Fungsi untuk memuat data JSON dari file statis
 async function loadGalleryData() {
-    // Tampilkan pesan loading saat memulai
     galleryList.innerHTML = '<p class="no-results">Memuat data...</p>';
     
     try {
@@ -25,7 +22,7 @@ async function loadGalleryData() {
         filterGallery(); 
 
     } catch (error) {
-        // Blok penanganan error
+        // Blok penanganan error akan tampil HANYA JIKA GAGAL FETCH/PARSE
         console.error('CRITICAL ERROR:', error);
         galleryList.innerHTML = `<p class="no-results" style="color: red;">
             ❌ ERROR KRITIS: Gagal memuat data. <br>
@@ -34,39 +31,35 @@ async function loadGalleryData() {
     }
 }
 
-// Fungsi utama untuk memfilter (Hapus Logika Sortir)
 function filterGallery() {
     let filteredData = [...photoData]; 
     const searchTerm = searchInput.value.toLowerCase().trim();
 
-    // 1. TAMPILKAN PESAN SAMBUTAN JIKA KOSONG
+    // TAMPILKAN PESAN SAMBUTAN JIKA KOSONG
     if (isDataLoaded && searchTerm.length < 2) { 
         galleryList.innerHTML = '<p class="no-results">Silakan ketik minimal 2 huruf pertama nama Anda di kolom pencarian di atas.</p>';
         return; 
     }
     
-    // 2. FILTER BERDASARKAN NAMA (JIKA ADA INPUT)
+    // FILTER BERDASARKAN NAMA
     if (searchTerm) {
         filteredData = filteredData.filter(item => 
             item.nama_pelanggan.toLowerCase().includes(searchTerm)
         );
     }
 
-    // 3. TAMPILKAN HASIL
     renderGallery(filteredData);
 }
 
-// Fungsi untuk menampilkan hasil
 function renderGallery(data) {
     galleryList.innerHTML = ''; 
 
     if (data.length === 0) {
-        galleryList.innerHTML = '<p class="no-results">Tidak ada hasil yang ditemukan. Cek kembali ejaan atau hubungi admin.</p>';
+        galleryList.innerHTML = '<p class="no-results">Tidak ada hasil yang ditemukan.</p>';
         return;
     }
 
     data.forEach(item => {
-        // Format tanggal (masih berguna)
         const dateObj = new Date(item.tanggal_acara);
         const formattedDate = dateObj instanceof Date && !isNaN(dateObj) ?
                               dateObj.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }) :
@@ -86,6 +79,5 @@ function renderGallery(data) {
     });
 }
 
-// Inisialisasi
 document.addEventListener('DOMContentLoaded', loadGalleryData);
 window.filterGallery = filterGallery;
